@@ -5,6 +5,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import redirect, render
 
 from .forms import SignUpForm
+from .models import Code
 
 
 def index(request):
@@ -64,6 +65,13 @@ def index(request):
                     presence_penalty=0.0,
                 )
                 response = (response["choices"][0]["text"]).strip()
+                record = Code(
+                    question=code,
+                    code_answer=response,
+                    language=lang,
+                    user=request.user,
+                )
+                record.save()
                 return render(
                     request,
                     "website/index.html",
@@ -137,6 +145,13 @@ def suggest(request):
                     presence_penalty=0.0,
                 )
                 response = (response["choices"][0]["text"]).strip()
+                record = Code(
+                    question=code,
+                    code_answer=response,
+                    language=lang,
+                    user=request.user,
+                )
+                record.save()
                 return render(
                     request,
                     "website/suggest.html",
@@ -200,3 +215,20 @@ def register_user(request):
 
     context = {"form": form}
     return render(request, "website/register.html", context)
+
+
+def past_code(request):
+    if request.user.is_authenticated:
+        code = Code.objects.filter(user_id=request.user)
+        context = {'code': code}
+        return render(request, "website/past_code.html", context)
+    else:
+        messages.success(request, 'You must be logged in to view this page.')
+        return redirect("index")
+
+
+def delete_past_code(request, past_id):
+    past = Code.objects.get(pk=past_id)
+    past.delete()
+    messages.success(request, 'Your code snippet has been deleted.')
+    return redirect('index')

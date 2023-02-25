@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Your Previous Code Questions & Answers</h1>
+
+{% if code %}
+
+{% for snippet in code %}
+<div class="row my-3">
+  <div class="col-md-1">
+    <h2 class="text-center py-5">{{ snippet.id }}</h2>
+  </div>
+  <div class="col-md-10">
+    <h5>Question: {{ snippet.question }}</h5>
+<pre>
+<code class="line-numbers language-{{ snippet.language }}">
+{{ snippet.code_answer }}
+
+</code>
+</pre>
+    <div>
+        <a href="{% url 'delete_past' snippet.id %}" class="btn btn-outline-danger btn-sm">Delete Code Snippet</a>
+    </div>
+    <hr />
+  </div>
+</div>
+
+{% endfor %}
+
+{% else %}
+<p class="lead">Unfortunately, you haven't submitted any code yet. Try to fix some code or submit a coding question.</p>
+{% endif %}
+
+{% endblock content %}
