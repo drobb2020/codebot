@@ -27,13 +27,13 @@
 <br />
 <div align="center">
   <a href="https://github.com/drobb2020/codebot">
-    <img src="static/assets/logo.png" alt="Logo" width="80" height="80">
+    <img src="static/assets/logo.png" alt="Logo" width="100">
   </a>
 
-  <h3 align="center">codebot</h3>
+  <h3 align="center">codeBot</h3>
 
   <p align="center">
-    An awesome README template to jumpstart your projects!
+    A cool demonstration of Django and openAI
     <br />
     <a href="https://github.com/drobb2020/codebot"><strong>Explore the docs »</strong></a>
     <br />
@@ -86,7 +86,9 @@ List of frameworks/libraries used to bootstrap this project.
 
 - [Python](https://python.org)
 - [Django](https://www.djangoproject.com/)
+- [openAI](https://openai.com/)
 - [Bootstrap](https://getbootstrap.com)
+- [Prism](https://prismjs.com/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -117,27 +119,40 @@ To Start a new Django app perform the following steps
    django-admin startproject codebot .
    ```
 
+6. Use the command to start a new django app
+
+   ```sh
+   python manage.py startapp website
+   ```
+
+7. Register the app in settings.py
+8. Run the django project using the command
+
+   ```sh
+   python manage.py runserver
+   ```
+
 ### Installation
 
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
+If you want to skip the steps above you can go ahead and clone this repo, and use my code as a starter.
 
-1. Get a free API Key at [https://example.com](https://example.com)
+1. Get a free openai API Key at [https://openai.com/](https://openai.com/)
 2. Clone the repo
 
    ```sh
    git clone https://github.com/drobb2020/codebot.git
    ```
 
-3. Install python packages
+3. Install the required packages
 
    ```sh
    pip install -r requirements.txt
    ```
 
-4. Enter your API in `config.js`
+4. Enter your API in `.env`
 
-   ```js
-   const API_KEY = 'ENTER YOUR API'
+   ```sh
+   OPENAI_API_KEY='ENTER YOUR API'
    ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -146,9 +161,7 @@ _Below is an example of how you can instruct your audience on installing and set
 
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
+This is a great demo of what openai is capable of doing for coders, from writing simple HTML, to writing code in multiple languages.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -187,7 +200,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 Your Name - [@davidrobb2](https://twitter.com/davidrobb2) - drobb2011@gmail.com
 
-Project Link: [https://github.com/your_username/repo_name](https://github.com/drobb2020/repo_name)
+Project Link: [https://github.com/drobb2020/codebot](https://github.com/drobb2020/codebot)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -195,16 +208,10 @@ Project Link: [https://github.com/your_username/repo_name](https://github.com/dr
 
 ## Acknowledgments
 
-Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
+I want to thank John Elder of Codemy.com for creating this course. Check out all of his courses at [codemy.com](https://codemy.com/).
 
 - [Choose an Open Source License](https://choosealicense.com)
-- [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
-- [Malven's Flexbox Cheatsheet](https://flexbox.malven.co/)
-- [Malven's Grid Cheatsheet](https://grid.malven.co/)
 - [Img Shields](https://shields.io)
-- [GitHub Pages](https://pages.github.com)
-- [Font Awesome](https://fontawesome.com)
-- [React Icons](https://react-icons.github.io/react-icons/search)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
