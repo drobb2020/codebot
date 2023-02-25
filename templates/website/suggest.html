@@ -1,9 +1,11 @@
 {% extends "base.html" %}
-
+{% load static %}
 
 {% block content %}
 <h1>codeBot</h1>
 <p class="lead">codeBot, can you suggest some code for me...</p>
+
+{% if user.is_authenticated %}
 
 {% if response %}
 <pre>
@@ -57,5 +59,31 @@ else:
         <button class="btn btn-secondary w-100" type="submit">Submit</button>
     </form>
 </div>
+{% endif %}
+
+{% else %}
+
+<div class="card mt-5" style="max-width: 950px;">
+  <div class="row g-0">
+    <div class="col-md-4 my-auto">
+      <img src="{% static 'assets/register.jpg' %}" class="img-fluid" alt="Login">
+    </div>
+    <div class="col-md-8 my-auto" style="width: 575px;">
+      <h2 class="text-center mt-3">Login</h2>
+      <form action="{% url 'login' %}" method="POST" class="form-group">
+        {% csrf_token %}
+        <div class="mb-3">
+            <input type="text" name="username" class="form-control mx-3" placeholder="Enter your username" />
+        </div>
+        <div class="mb-3">
+            <input type="password" name="password" class="form-control mx-3" placeholder="Enter your password" />
+        </div>
+        <button type="submit" class="btn btn-secondary w-100 mb-3 mx-3">Login</button>
+      </form>
+      <p class="text-muted ms-3">Don't have an account? <a href="{% url 'register' %}">Sign Up</a> for a free account</p>
+    </div>
+  </div>
+</div>
+
 {% endif %}
 {% endblock content %}
