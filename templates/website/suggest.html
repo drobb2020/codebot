@@ -1,8 +1,9 @@
 {% extends "base.html" %}
 
+
 {% block content %}
 <h1>codeBot</h1>
-<p class="lead">Can I help you to write some awesome code?</p>
+<p class="lead">codeBot, can you suggest some code for me...</p>
 
 {% if response %}
 <pre>
@@ -12,10 +13,10 @@
 </code>
 </pre>
 <div class="my-3">
-    <form action="{% url 'index' %}" method="post" class="form-group">
+    <form action="{% url 'suggest' %}" method="post" class="form-group">
     {% csrf_token %}
         <div class="mb-3">
-            <textarea class="form-control" name="code" rows="4" placeholder="Have codeBot A.I. fix my code.">{{ code }}</textarea>
+            <textarea class="form-control" name="code" rows="4" placeholder="Have codeBot A.I. suggest code.">{{ code }}</textarea>
         </div>
         <div class="mb-3">
             <select class="form-select" name="lang">
@@ -40,10 +41,10 @@ else:
 </code>
 </pre>
 <div class="my-3">
-    <form action="{% url 'index' %}" method="post" class="form-group">
+    <form action="{% url 'suggest' %}" method="post" class="form-group">
     {% csrf_token %}
         <div class="mb-3">
-            <textarea class="form-control" name="code" rows="4" placeholder="Have codeBot A.I. fix my code."></textarea>
+            <textarea class="form-control" name="code" rows="4" placeholder="Have codeBot A.I. suggest code"></textarea>
         </div>
         <div class="mb-3">
             <select class="form-select" name="lang">
@@ -57,5 +58,4 @@ else:
     </form>
 </div>
 {% endif %}
-
 {% endblock content %}
